@@ -30,4 +30,14 @@ class Services extends CoreServices
 	//
 	//        return new \CodeIgniter\Example();
 	//    }
+
+	public static function auth($getShared = true)
+	{
+		if($getShared)
+		{
+			return static::getSharedInstance('auth');
+		}
+		
+		return new \App\Services\Auth();
+	}
 }

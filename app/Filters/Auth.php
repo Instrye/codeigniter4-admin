@@ -8,7 +8,10 @@ class Auth implements FilterInterface
 {
     public function before(RequestInterface $request)
     {
-
+        $auth = service('auth');
+        if(!$auth->check()){
+            return redirect()->to('/login');
+        }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response)
